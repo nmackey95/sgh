@@ -85,21 +85,6 @@ $("#data_switch").on("pagecreate", function() {
   var score_trans = new transformation(score_options)
 
 
-    var goodPositionChange = function(pos) {
-      var crd = pos.coords;
-
-      currentLatlng = [crd.latitude, crd.longitude];
-
-    }
-
-
-    badPositionChange = function (err) {
-      console.warn('ERROR(' + err.code + '): ' + err.message);
-    },
-    options = {
-      enableHighAccuracy: true,
-    };
-
   score.attr('transform',score_trans.text())
 
   var wheel_trans = new transformation(wheel_options)
@@ -136,8 +121,6 @@ $("#data_switch").on("pagecreate", function() {
     // }
 
   };
-
-
 
   var rotate = d3.behavior.drag()
     .on("drag", circle_drag);
