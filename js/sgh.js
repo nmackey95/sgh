@@ -17,6 +17,25 @@ var circles = [{
 
 $("#data_switch").on("pagecreate", function() {
 
+
+    var goodPositionChange = function(pos) {
+      var crd = pos.coords;
+
+      currentLatlng = [crd.latitude, crd.longitude];
+
+    }
+
+
+    var badPositionChange = function (err) {
+      console.warn('ERROR(' + err.code + '): ' + err.message);
+    }
+    var options = {
+      enableHighAccuracy: true,
+    };
+debugger;
+var positionWatchID = positionWatchID || navigator.geolocation.watchPosition(goodPositionChange, badPositionChange, options);
+
+
   var svg = d3.select('#canvas')
     .append('svg')
     .attr('width', window.innerWidth)
